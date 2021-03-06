@@ -1,5 +1,7 @@
-# imports
+import json
 
 
-def lambda_handler(event, context):
-  # things happen
+def brotliRequest(event, context):
+    request = event['Records'][0]['cf']['request']
+    request['uri'] += '.br'
+    return request
